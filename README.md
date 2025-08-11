@@ -61,7 +61,7 @@ src/
 ├── styles/
 │   └── globals.css
 ├── types/
-├── middleware.ts
+└── middleware.ts
 ```
 
 ## 🚀 Como Rodar Localmente
