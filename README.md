@@ -1,115 +1,139 @@
-# 💰 Budget Loop - Controle Financeiro com Visualização Inteligente!
+# 💰 Budget Loop — Controle Financeiro com Visualização Inteligente
 <p align="center">
-  <img alt="GitHub language count" src="https://img.shields.io/github/languages/count/devAndreotti/budget-loop?color=FFF&labelColor=f3c07b&style=flat-square">
-  <img alt="GitHub repo size" src="https://img.shields.io/github/repo-size/devAndreotti/budget-loop?color=FFF&labelColor=f3c07b&style=flat-square">
-  <img alt="GitHub License" src="https://img.shields.io/github/license/devAndreotti/budget-loop?color=FFF&labelColor=f3c07b&style=flat-square">
+  <img alt="GitHub language count" src="https://img.shields.io/github/languages/count/devAndreotti/budget-loop?color=FFF&labelColor=f3c07b&style=flat-square" />
+  <img alt="GitHub repo size" src="https://img.shields.io/github/repo-size/devAndreotti/budget-loop?color=FFF&labelColor=f3c07b&style=flat-square" />
+  <img alt="GitHub License" src="https://img.shields.io/github/license/devAndreotti/budget-loop?color=FFF&labelColor=f3c07b&style=flat-square" />
 </p>
 
 <p align="center">
-  <img src="" alt="Captura de tela do Budget Loop">
+  <img src="" alt="Captura de tela do Budget Loop" />
 </p>
 
 ## 📋 Sobre o Projeto
-**FinTrack** é um sistema de controle financeiro pessoal com **gráficos interativos**, **filtros inteligentes** e **cadastro de transações**.
-O foco está na **visualização clara** dos gastos, entradas e categorias ao longo do tempo — tudo com uma interface moderna, modular e responsiva.
+**Budget Loop** é uma aplicação para controle financeiro pessoal que une **cadastro fácil de transações**, **visualização de dados por gráficos dinâmicos** e **filtros inteligentes** para análise rápida dos seus gastos e ganhos.
 
-Este projeto está **em construção**, com base sólida em **TypeScript**, **Next.js App Router**, **Tailwind CSS** e **Zustand**.
+A interface é moderna, responsiva e modular, construída com tecnologias robustas e atuais para garantir alta performance e manutenção facilitada.
 
-## ⚙️ Funcionalidades Planejadas
-* ✅ **Cadastro de Transações**: Entradas e saídas com valor, data, categoria e descrição
-* 🧮 **Resumo Financeiro**: Total de entradas, saídas e saldo geral
-* 📊 **Gráficos Dinâmicos**: Barras por mês, pizza por categoria, linha de evolução
-* 🔍 **Filtros Avançados**: Por mês, tipo (entrada/saída), categoria
-* 🧠 **Armazenamento Local**: Persistência no navegador via IndexedDB
-* ⬇️ **Exportação CSV**: Download das transações para planilhas
-* 📱 **Design Responsivo**: Adaptação para mobile, tablet e desktop
-* 🌙 **Tema Escuro/Claro** *(em breve)*
+O projeto está em desenvolvimento, fundamentado em:
 
-## 🛠 Tecnologias Utilizadas
-* **[Next.js 14 (App Router)](https://nextjs.org/docs/app)** — Estrutura moderna e eficiente para apps React
-* **[TypeScript](https://www.typescriptlang.org/)** — Segurança e clareza na tipagem
-* **[Tailwind CSS](https://tailwindcss.com/)** — Estilização rápida com classes utilitárias
-* **[Zustand](https://github.com/pmndrs/zustand)** — Gerenciamento de estado simples e poderoso
-* **[Chart.js](https://www.chartjs.org/)** — Gráficos dinâmicos e interativos
-* **[Lucide React](https://lucide.dev/guide/packages/lucide-react)** — Ícones modernos em SVG
-* **[Zod](https://zod.dev/)** — Validação de dados com schemas
+* **Next.js 14 (App Router)** para estrutura moderna e SSR
+* **TypeScript** para segurança e tipagem clara
+* **Tailwind CSS** para estilização rápida e responsiva
+* **Zustand** para gerenciamento leve e eficiente do estado
+* **Chart.js** para gráficos interativos
+* **Zod** para validação de dados
 
-## 📂 Estrutura do Projeto
+## ⚙️ Funcionalidades Principais
+* ✅ Cadastro de transações (entrada/saída) com valor, data, categoria e descrição
+* 🧮 Resumo financeiro com total de entradas, saídas e saldo
+* 📊 Gráficos dinâmicos: barras mensais, pizza por categoria e linha de evolução
+* 🔍 Filtros avançados por mês, tipo de transação e categoria
+* 🧠 Persistência local no navegador via IndexedDB
+* ⬇️ Exportação para CSV
+* 📱 Design responsivo para desktop, tablet e mobile
+* 🌙 Suporte a tema escuro/claro *(em breve)*
+
+## 📂 Estrutura do Projeto Atualizada
 ```
-src/
+backend/                  # Backend Node.js (servidor, Docker)
+├── Dockerfile
+├── docker-compose.yml
+├── package.json
+├── server.js
+└── src/
+
+src/                      # Código frontend (Next.js App Router)
 ├── app/
-│   └── transactions/
-│       ├── layout.tsx
-│       └── page.tsx
-├── components/
-│   ├── charts/
-│   ├── layout/
-│   ├── shared/
-│   └── transactions/
-├── config/
+│   ├── transactions/      # Páginas e rotas de transações
+│   │   ├── new/           # Página para nova transação
+│   │   │   └── page.tsx
+│   │   ├── layout.tsx
+│   │   └── page.tsx
+│   └── layout.tsx         # Layout geral da aplicação
+├── components/            # Componentes React reutilizáveis
+│   ├── charts/            # Componentes gráficos
+│   │   ├── CategoryChart.tsx
+│   │   ├── DashboardCard.tsx
+│   │   └── MonthlyChart.tsx
+│   ├── layout/            # Componentes de layout (Header, Footer, Container)
+│   ├── shared/            # Botões, inputs, loaders, seletores, etc
+│   └── transactions-specific/  # Componentes específicos para transações (form, item, lista)
+├── config/                # Configurações, filtros e limites
 │   ├── charts.ts
-│   └── filters.ts
-├── constants/
+│   ├── filters.ts
+│   └── limits.ts
+├── constants/             # Constantes e mensagens
 │   ├── app.ts
 │   └── messages.ts
-├── hooks/
-│   └── useFilteredTransactions.ts
-├── lib/
-│   ├── stores/
-│   ├── utils/
-│   └── validations/
-├── styles/
-│   └── globals.css
-├── types/
-└── middleware.ts
+├── hooks/                 # Custom hooks (ex: uso de filtros, localStorage, estatísticas)
+│   ├── useCSVExport.ts
+│   ├── useFilteredTransactions.ts
+│   ├── useLocalStorage.ts
+│   └── useTransactionStats.ts
+├── lib/                   # Lógica auxiliar e utilitários
+│   ├── stores/            # Stores do Zustand para estado global
+│   ├── utils/             # Funções utilitárias
+│   └── validations/       # Schemas e validações Zod
+├── styles/                # CSS global e temas
+│   ├── globals.css
+│   ├── globals.css.d.ts
+│   └── theme.css
+├── types/                 # Tipagens TypeScript
+├── middleware.ts          # Middleware Next.js (ex: autenticação)
+├── package.json
+├── tsconfig.json
+└── next.config.ts
 ```
 
 ## 🚀 Como Rodar Localmente
-1. **Clone o repositório:**
+1. Clone o repositório:
 
-   ```bash
-   git clone https://github.com/devAndreotti/fintrack.git
-   ```
+```bash
+git clone https://github.com/devAndreotti/budget-loop.git
+```
 
-2. **Acesse a pasta do projeto:**
+2. Entre na pasta do projeto:
 
-   ```bash
-   cd fintrack
-   ```
+```bash
+cd budget-loop
+```
 
-3. **Instale as dependências:**
+3. Instale as dependências do frontend e backend:
 
-   ```bash
-   npm install
-   # ou yarn / bun
-   ```
+```bash
+npm install
+# ou yarn
+```
 
-4. **Inicie o servidor de desenvolvimento:**
+4. Para rodar localmente com Docker:
 
-   ```bash
-   npm run dev
-   ```
+```bash
+docker-compose up --build
+```
 
-## 🔮 Melhorias Futuras
-* [ ] Concluir componentes de `TransactionList` e `TransactionForm`
-* [ ] Adicionar suporte ao tema escuro/claro com toggle
-* [ ] Integrar IndexedDB para persistência local
-* [ ] Implementar exportação de dados para CSV
-* [ ] Adicionar autenticação para múltiplos usuários (fase 2)
+5. Ou apenas o frontend:
+
+```bash
+npm run dev
+```
+
+## 🔮 Roadmap & Melhorias Futuras
+* [ ] Finalizar componentes `TransactionForm` e `TransactionList`
+* [ ] Implementar tema escuro/claro com toggle
+* [ ] Integração completa com IndexedDB para persistência local
+* [ ] Exportação de dados para CSV funcionando
+* [ ] Autenticação multiusuário (fase 2)
 * [ ] Melhorar acessibilidade (a11y) e animações
 
 ## 💪 Como Contribuir
 1. Faça um fork do repositório
-2. Crie uma branch: `git checkout -b feature/nova-feature`
-3. Commit: `git commit -m "feat: nova feature"`
-4. Push: `git push origin feature/nova-feature`
-5. Abra um Pull Request 🎉
+2. Crie uma branch para sua feature (`git checkout -b feature/nome-da-feature`)
+3. Faça commit das alterações (`git commit -m "feat: descrição da feature"`)
+4. Envie para o repositório remoto (`git push origin feature/nome-da-feature`)
+5. Abra um Pull Request e aguarde revisão
 
 ## 📝 Licença
-Este projeto está sob a licença MIT.
-Consulte o arquivo [LICENSE](./LICENSE) para mais detalhes.
-
-<br>
+Este projeto está licenciado sob a licença MIT. Veja o arquivo [LICENSE](https://github.com/devAndreotti/devAndreotti/blob/main/LICENSE) para mais detalhes.
 
 ---
 
