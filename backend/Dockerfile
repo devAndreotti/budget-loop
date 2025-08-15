@@ -1,20 +1,7 @@
-# Imagem base
-FROM node:18
-
-# Criar pasta de trabalho
+FROM node:18-alpine
 WORKDIR /app
-
-# Copiar arquivos de dependências
 COPY package*.json ./
-
-# Instalar dependências
 RUN npm install
-
-# Copiar o restante do código
 COPY . .
-
-# Expor a porta do servidor (troque se usar outra)
-EXPOSE 5000
-
-# Comando para iniciar
-CMD ["npm", "run", "start"]
+EXPOSE 3001
+CMD ["npm", "start"]
