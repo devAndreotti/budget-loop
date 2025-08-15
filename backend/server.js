@@ -2,6 +2,13 @@ const express = require('express');
 const app = express();
 const PORT = process.env.PORT || 3001;
 
+// Patch para listar todas as rotas registradas
+const originalUse = app.use;
+app.use = function (path, ...handlers) {
+  console.log('Registrando rota:', path);
+  return originalUse.call(this, path, ...handlers);
+};
+
 // Middleware para parsing JSON
 app.use(express.json());
 

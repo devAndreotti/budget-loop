@@ -1,18 +1,14 @@
-FROM node:18-alpine
+FROM node:22-alpine
 
 WORKDIR /app
 
-# Copiar arquivos de dependências
+# package.json já está na raiz (contexto .), então funciona
 COPY package*.json ./
 
-# Instalar dependências
 RUN npm install
 
-# Copiar código fonte
-COPY . .
+COPY src ./src
 
-# Expor porta
-EXPOSE 3000
+EXPOSE 5173
 
-# Comando para desenvolvimento
-CMD ["npm", "run", "dev"]
+CMD ["npm", "run", "dev", "--", "--port", "3000"]
