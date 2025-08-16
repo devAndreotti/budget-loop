@@ -40,7 +40,16 @@ backend/                  # Backend Node.js (servidor, Docker)
 ├── docker-compose.yml
 ├── package.json
 ├── server.js
-└── src/
+
+public/ 
+
+docker-compose.yml
+
+eslint.config.mjs
+
+next-env.d.ts
+
+next.config.ts
 
 src/                      # Código frontend (Next.js App Router)
 ├── app/
@@ -56,11 +65,12 @@ src/                      # Código frontend (Next.js App Router)
 │   │   ├── DashboardCard.tsx
 │   │   └── MonthlyChart.tsx
 │   ├── layout/            # Componentes de layout (Header, Footer, Container)
-│   ├── shared/            # Botões, inputs, loaders, seletores, etc
-│   └── transactions-specific/  # Componentes específicos para transações (form, item, lista)
+│   ├── shared/            # Button, DatePicker, EmptyState, Imput, Loader, Select, etc
+│   └── transactions-specific/  # Componentes específicos para transações (TransactionForm, TransactionItem, TransactionList)
 ├── config/                # Configurações, filtros e limites
 │   ├── charts.ts
 │   ├── filters.ts
+│   ├── theme.ts
 │   └── limits.ts
 ├── constants/             # Constantes e mensagens
 │   ├── app.ts
@@ -76,12 +86,15 @@ src/                      # Código frontend (Next.js App Router)
 │   └── validations/       # Schemas e validações Zod
 ├── styles/                # CSS global e temas
 │   ├── globals.css
-│   ├── globals.css.d.ts
 │   └── theme.css
 ├── types/                 # Tipagens TypeScript
+├── tailwind.config.ts                
+│   └── postcss.config.mjs
 ├── middleware.ts          # Middleware Next.js (ex: autenticação)
 ├── package.json
 ├── tsconfig.json
+├── .env.local
+├── Dockerfile
 └── next.config.ts
 ```
 
